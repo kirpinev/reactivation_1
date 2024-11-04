@@ -33,7 +33,7 @@ export const App = () => {
             : "Поздравляем, вы выиграли приз!"}
         </Typography.TitleResponsive>
 
-        <Gap size={24} />
+        <Gap size={40} />
 
         <div
           style={{
