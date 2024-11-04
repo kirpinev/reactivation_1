@@ -117,7 +117,7 @@ export const App = () => {
           />
         </div>
 
-        <Gap size={40} />
+        <Gap size={64} />
 
         {error && (
           <div style={{ textAlign: "center" }}>
