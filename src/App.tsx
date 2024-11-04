@@ -10,27 +10,12 @@ import { Slider } from "@alfalab/core-components/slider";
 import { Gap } from "@alfalab/core-components/gap";
 
 export const App = () => {
-  // const [loading, setLoading] = useState(false);
   const [isStopDragging, setIsStopDragging] = useState(false);
   const [startPosition, setStartPosition] = useState(0);
-  // const [thxShow, setThx] = useState(LS.getItem(LSKeys.ShowThx, false));
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const rubleRef = useRef<HTMLImageElement>(null);
   const targetRef = useRef<HTMLDivElement>(null);
-
-  // const submit = () => {
-  //   setLoading(true);
-  //   Promise.resolve().then(() => {
-  //     LS.setItem(LSKeys.ShowThx, true);
-  //     setThx(true);
-  //     setLoading(false);
-  //   });
-  // };
-
-  // if (thxShow) {
-  //   return <ThxLayout />;
-  // }
 
   return (
     <>
@@ -102,31 +87,34 @@ export const App = () => {
 
         <Gap size={48} />
 
-        <Slider
-          size="m"
-          disabled={isStopDragging}
-          value={Number(startPosition)}
-          range={{
-            min: 0,
-            max:
-              (targetRef.current?.getBoundingClientRect().left || 0) + 30 || 0,
-          }}
-          onChange={(event) => setStartPosition(event.value)}
-          onEnd={() => {
-            setIsStopDragging(true);
-            const rubleLeft =
-              rubleRef.current?.getBoundingClientRect().left || 0;
+        <div className={appSt.wrapper}>
+          <Slider
+            size="m"
+            disabled={isStopDragging}
+            value={Number(startPosition)}
+            range={{
+              min: 0,
+              max:
+                (targetRef.current?.getBoundingClientRect().left || 0) + 30 ||
+                0,
+            }}
+            onChange={(event) => setStartPosition(event.value)}
+            onEnd={() => {
+              setIsStopDragging(true);
+              const rubleLeft =
+                rubleRef.current?.getBoundingClientRect().left || 0;
 
-            if (
-              rubleLeft + 6 ===
-              targetRef.current?.getBoundingClientRect().left
-            ) {
-              setSuccess(true);
-            } else {
-              setError(true);
-            }
-          }}
-        />
+              if (
+                rubleLeft + 6 ===
+                targetRef.current?.getBoundingClientRect().left
+              ) {
+                setSuccess(true);
+              } else {
+                setError(true);
+              }
+            }}
+          />
+        </div>
 
         <Gap size={32} />
 

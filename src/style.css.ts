@@ -88,10 +88,11 @@ const checkMark = style({
 
 const wrapper = style({
   position: "relative",
+  width: "92%",
 });
 
-globalStyle(`div > div`, {
-  // backgroundColor: "red",
+globalStyle(`${wrapper} > div > div > div:nth-of-type(2) > div`, {
+  transform: "scale(2)",
 });
 
 export const appSt = {
