@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { style, globalStyle } from "@vanilla-extract/css";
 
 const container = style({
   display: "flex",
@@ -86,6 +86,14 @@ const checkMark = style({
   top: -9,
 });
 
+const wrapper = style({
+  position: "relative",
+});
+
+globalStyle(`div > div`, {
+  // backgroundColor: "red",
+});
+
 export const appSt = {
   bottomBtn,
   bottomBtnThx,
@@ -99,4 +107,5 @@ export const appSt = {
   gifts,
   gift,
   checkMark,
+  wrapper,
 };
