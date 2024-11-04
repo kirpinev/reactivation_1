@@ -44,6 +44,7 @@ export const App = () => {
             alignItems: "center",
             justifyContent: "space-between",
             position: "relative",
+            borderRadius: "16px",
           }}
         >
           <img
