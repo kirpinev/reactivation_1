@@ -234,7 +234,7 @@ export const App = () => {
               </div>
               <div className={appSt.gift}>
                 <div className={appSt.imageWrapper}>
-                  <img src={read2} alt="" className={appSt.giftImage} />
+                  <img src={read2} alt="" className={appSt.giftImage} style={ { transform: "scale(1.1)" } } />
                 </div>
                 <div
                   style={{
