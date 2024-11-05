@@ -104,15 +104,43 @@ export const App = () => {
               setIsStopDragging(true);
               const rubleLeft =
                 rubleRef.current?.getBoundingClientRect().left || 0;
+              const rubleRight =
+                rubleRef.current?.getBoundingClientRect().right || 0;
+
+              const targetLeft =
+                targetRef.current?.getBoundingClientRect().left || 0;
+              const targetRight =
+                targetRef.current?.getBoundingClientRect().right || 0;
+
+              console.log(rubleRight - 6, targetRight);
 
               if (
                 rubleLeft + 6 ===
                 targetRef.current?.getBoundingClientRect().left
               ) {
                 setSuccess(true);
+              } else if (
+                rubleRight - 6 < targetRight &&
+                Math.abs(rubleRight - 6 - targetRight) <= 10
+              ) {
+                setSuccess(true);
+              } else if (
+                rubleLeft + 6 > targetLeft &&
+                Math.abs(rubleLeft - targetLeft) <= 6
+              ) {
+                setSuccess(true);
               } else {
                 setError(true);
               }
+
+              // if (
+              //   rubleLeft + 6 ===
+              //   targetRef.current?.getBoundingClientRect().left
+              // ) {
+              //   setSuccess(true);
+              // } else {
+              //   setError(true);
+              // }
             }}
           />
         </div>
