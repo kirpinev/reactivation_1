@@ -20,6 +20,18 @@ export const App = () => {
   const rubleRef = useRef<HTMLImageElement>(null);
   const targetRef = useRef<HTMLDivElement>(null);
 
+    const clickSuccess = () => {
+        window.gtag("event", "prize_page_view", {
+          variant_name: "reactivation_1",
+        });
+    };
+
+    const clickSubmit = () => {
+        window.gtag("event", "prize_get_click", {
+            variant_name: "reactivation_1",
+        });
+    };
+
   return (
     <>
       <Gap size={48} />
@@ -115,23 +127,25 @@ export const App = () => {
               const targetRight =
                 targetRef.current?.getBoundingClientRect().right || 0;
 
-              console.log(rubleRight - 6, targetRight);
 
               if (
                 rubleLeft + 6 ===
                 targetRef.current?.getBoundingClientRect().left
               ) {
                 setSuccess(true);
+                clickSuccess();
               } else if (
                 rubleRight - 6 < targetRight &&
                 Math.abs(rubleRight - 6 - targetRight) <= 10
               ) {
                 setSuccess(true);
+                clickSuccess();
               } else if (
                 rubleLeft + 6 > targetLeft &&
                 Math.abs(rubleLeft - targetLeft) <= 6
               ) {
                 setSuccess(true);
+                clickSuccess();
               } else {
                 setError(true);
               }
@@ -277,7 +291,7 @@ export const App = () => {
 
       <div className={appSt.bottomBtnThx}>
         {success && (
-          <ButtonMobile block view="primary" href="https://alfa.me/cbpartner">
+          <ButtonMobile block view="primary" href="https://alfa.me/cbpartner" onClick={clickSubmit}>
             Забрать приз
           </ButtonMobile>
         )}
