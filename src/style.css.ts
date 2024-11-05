@@ -60,24 +60,37 @@ const bonus = style({
 
 const gifts = style({
   display: "flex",
-  flexWrap: "wrap",
-  gap: "0.5rem",
+  flexDirection: "column",
+  gap: "1rem",
+  width: "100%",
 });
 
 const gift = style({
+  width: "100%",
   border: "2px solid gray",
   borderRadius: "1rem",
   borderColor: "#F2F3F5",
-  padding: "0.5rem",
+  padding: "0.5rem 1rem 0.5rem 0.5rem",
   boxSizing: "border-box",
   display: "flex",
   alignItems: "center",
-  justifyContent: "center",
   flex: 1,
   flexBasis: "30%",
-  minHeight: "4rem",
+  minHeight: "5rem",
   cursor: "pointer",
-  position: "relative",
+  gap: "1rem",
+});
+
+const giftImage = style({
+  objectFit: "cover",
+  borderRadius: "16px",
+  width: "100%",
+  height: "100%",
+});
+
+const imageWrapper = style({
+  width: "100px",
+  height: "50px",
 });
 
 const checkMark = style({
@@ -109,4 +122,6 @@ export const appSt = {
   gift,
   checkMark,
   wrapper,
+  giftImage,
+  imageWrapper,
 };
