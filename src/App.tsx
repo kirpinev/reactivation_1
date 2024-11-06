@@ -32,6 +32,12 @@ export const App = () => {
         });
     };
 
+    const clickInteraction = () => {
+        window.gtag("event", "game_interaction", {
+            variant_name: "reactivation_1",
+        });
+    };
+
   return (
     <>
       <Gap size={48} />
@@ -116,6 +122,7 @@ export const App = () => {
             }}
             onChange={(event) => setStartPosition(event.value)}
             onEnd={() => {
+              clickInteraction();
               setIsStopDragging(true);
               const rubleLeft =
                 rubleRef.current?.getBoundingClientRect().left || 0;
