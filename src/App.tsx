@@ -50,7 +50,7 @@ export const App = () => {
           className={appSt.productsTitle}
         >
           {!success
-            ? "Попади монеткой в пазл и заработай приз"
+            ? "Соедините монетки и получите приз"
             : "Поздравляем, вы выиграли приз!"}
         </Typography.TitleResponsive>
 
@@ -177,7 +177,7 @@ export const App = () => {
         {success && (
           <>
             <Typography.Text weight="bold" view="primary-large">
-              Кэшбэк у партнеров
+              Кэшбэк у партнёров
             </Typography.Text>
             <Gap size={24} />
             <div className={appSt.gifts}>
