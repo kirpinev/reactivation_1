@@ -312,7 +312,7 @@ export const App = () => {
               setIsStopDragging(false);
             }}
           >
-            Сыграть еще
+            Сыграть ещё
           </ButtonMobile>
         )}
       </div>
